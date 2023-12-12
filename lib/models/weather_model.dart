@@ -15,7 +15,7 @@ class WeatherModel{
         required this.temp,
         required this.maxtemp,
         required this.mintemp,
-        required this.weatherCondition
+        required this.weatherCondition,
       }
   );
 
@@ -28,6 +28,6 @@ class WeatherModel{
       maxtemp: json['forecast']['forecastday'][0]['day']['maxtemp_f'], 
       mintemp: json['forecast']['forecastday'][0]['day']['mintemp_c'],
         weatherCondition: json['forecast']['forecastday'][0]['day']['condition']['text'],
-        );
+    );
   }
 }
