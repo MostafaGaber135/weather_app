@@ -1,3 +1,5 @@
+// ignore_for_file: use_build_context_synchronously
+
 import 'dart:developer';
 
 import 'package:dio/dio.dart';
@@ -19,6 +21,7 @@ class SearchView extends StatelessWidget {
           child: TextField(
             onSubmitted: (value) async {
             WeatherModel weatherModel = await WeatherService(Dio()).getCurrentWeather(cityName: value );
+            Navigator.pop(context);
             log(weatherModel.cityName);
             },
             decoration: const InputDecoration(
@@ -33,7 +36,7 @@ class SearchView extends StatelessWidget {
               border: OutlineInputBorder(
                 borderSide: BorderSide(
                   color: Colors.green,
-                )
+                ),
               ),
             ),
           ),
@@ -42,3 +45,6 @@ class SearchView extends StatelessWidget {
     );
   }
 }
+
+
+WeatherModel? weatherModel;
